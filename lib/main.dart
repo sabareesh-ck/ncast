@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:ncast/screen/homescreen.dart';
+import 'package:ncast/screen/onboard_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: HomeScreen(),
-  ));
+  runApp(const App());
+}
+
+class App extends StatelessWidget {
+  const App({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: OnBoardScreen(),
+    );
+  }
 }
