@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ncast/screen/home_screen.dart';
 import 'package:ncast/screen/onboard_screen.dart';
 
 void main() {
@@ -7,6 +8,7 @@ void main() {
 
 class App extends StatelessWidget {
   const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(

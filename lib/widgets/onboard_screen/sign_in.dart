@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:ncast/screen/home_screen.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
 
+  final String screen = 'onboard';
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (ctx) => const HomeScreen()));
+      },
       style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(const Color(0xFF4C0099))),
       child: const Padding(

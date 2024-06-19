@@ -9,16 +9,6 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetsColorGen {
-  const $AssetsColorGen();
-
-  /// File path: assets/color/colors.xml
-  String get colors => 'assets/color/colors.xml';
-
-  /// List of all assets
-  List<String> get values => [colors];
-}
-
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -29,6 +19,9 @@ class $AssetsImagesGen {
   AssetGenImage get background =>
       const AssetGenImage('assets/images/background.png');
 
+  /// Directory path: assets/images/icon
+  $AssetsImagesIconGen get icon => const $AssetsImagesIconGen();
+
   /// File path: assets/images/mic.png
   AssetGenImage get mic => const AssetGenImage('assets/images/mic.png');
 
@@ -38,14 +31,91 @@ class $AssetsImagesGen {
   /// File path: assets/images/ncast_2.svg
   String get ncast2 => 'assets/images/ncast_2.svg';
 
+  /// File path: assets/images/notifiaction.svg
+  String get notifiaction => 'assets/images/notifiaction.svg';
+
+  /// File path: assets/images/notification_icon.svg
+  String get notificationIcon => 'assets/images/notification_icon.svg';
+
+  /// Directory path: assets/images/promoted_podcast
+  $AssetsImagesPromotedPodcastGen get promotedPodcast =>
+      const $AssetsImagesPromotedPodcastGen();
+
+  /// Directory path: assets/images/trending_podcast
+  $AssetsImagesTrendingPodcastGen get trendingPodcast =>
+      const $AssetsImagesTrendingPodcastGen();
+
   /// List of all assets
-  List<dynamic> get values => [appBar, background, mic, ncast1, ncast2];
+  List<dynamic> get values =>
+      [appBar, background, mic, ncast1, ncast2, notifiaction, notificationIcon];
+}
+
+class $AssetsImagesIconGen {
+  const $AssetsImagesIconGen();
+
+  /// File path: assets/images/icon/compass.svg
+  String get compass => 'assets/images/icon/compass.svg';
+
+  /// File path: assets/images/icon/contact.svg
+  String get contact => 'assets/images/icon/contact.svg';
+
+  /// File path: assets/images/icon/headphones.svg
+  String get headphones => 'assets/images/icon/headphones.svg';
+
+  /// File path: assets/images/icon/heart.svg
+  String get heart => 'assets/images/icon/heart.svg';
+
+  /// File path: assets/images/icon/play.svg
+  String get play => 'assets/images/icon/play.svg';
+
+  /// File path: assets/images/icon/play_background.svg
+  String get playBackground => 'assets/images/icon/play_background.svg';
+
+  /// File path: assets/images/icon/search.svg
+  String get search => 'assets/images/icon/search.svg';
+
+  /// List of all assets
+  List<String> get values =>
+      [compass, contact, headphones, heart, play, playBackground, search];
+}
+
+class $AssetsImagesPromotedPodcastGen {
+  const $AssetsImagesPromotedPodcastGen();
+
+  /// File path: assets/images/promoted_podcast/podcast_show.png
+  AssetGenImage get podcastShow =>
+      const AssetGenImage('assets/images/promoted_podcast/podcast_show.png');
+
+  /// File path: assets/images/promoted_podcast/task_podcast.png
+  AssetGenImage get taskPodcast =>
+      const AssetGenImage('assets/images/promoted_podcast/task_podcast.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [podcastShow, taskPodcast];
+}
+
+class $AssetsImagesTrendingPodcastGen {
+  const $AssetsImagesTrendingPodcastGen();
+
+  /// File path: assets/images/trending_podcast/festival.png
+  AssetGenImage get festival =>
+      const AssetGenImage('assets/images/trending_podcast/festival.png');
+
+  /// File path: assets/images/trending_podcast/see.png
+  AssetGenImage get see =>
+      const AssetGenImage('assets/images/trending_podcast/see.png');
+
+  /// File path: assets/images/trending_podcast/time.png
+  AssetGenImage get time =>
+      const AssetGenImage('assets/images/trending_podcast/time.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [festival, see, time];
 }
 
 class Assets {
   Assets._();
 
-  static const $AssetsColorGen color = $AssetsColorGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
