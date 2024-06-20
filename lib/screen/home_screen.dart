@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
+import 'package:ncast/screen/explore_screen.dart';
 import 'package:ncast/screen/headphone_screen.dart';
 import 'package:ncast/widgets/homescreen/bottom_navigator.dart';
 
@@ -8,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final controller = PageController(initialPage: 0);
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -36,8 +38,20 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: const BottomNavigator(),
-      body: const HeadphoneScreen(),
+      body: Stack(
+        children: [
+          PageView(
+            controller: controller,
+            children: const [HeadphoneScreen(), ExploreScreen()],
+          ),
+          const Positioned(
+            top: 700,
+            left: 20,
+            right: 20,
+            child: BottomNavigator(),
+          ),
+        ],
+      ),
     );
   }
 }

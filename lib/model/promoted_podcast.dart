@@ -3,6 +3,11 @@ class PromotedPodcast {
   final String imagepath;
 }
 
+class TopPodcast {
+  const TopPodcast({required this.imagepath});
+  final String imagepath;
+}
+
 class TrendingPodcast {
   const TrendingPodcast({
     required this.imagepath,
