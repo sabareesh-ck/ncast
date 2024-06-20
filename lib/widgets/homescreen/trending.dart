@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ncast/model/podcast_list.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
 

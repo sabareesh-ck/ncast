@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ncast/screen/home_screen.dart';
 import 'package:ncast/screen/onboard_screen.dart';
 
 void main() {

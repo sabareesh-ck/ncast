@@ -19,6 +19,9 @@ class $AssetsImagesGen {
   AssetGenImage get background =>
       const AssetGenImage('assets/images/background.png');
 
+  /// Directory path: assets/images/favourite
+  $AssetsImagesFavouriteGen get favourite => const $AssetsImagesFavouriteGen();
+
   /// Directory path: assets/images/icon
   $AssetsImagesIconGen get icon => const $AssetsImagesIconGen();
 
@@ -41,6 +44,14 @@ class $AssetsImagesGen {
   $AssetsImagesPromotedPodcastGen get promotedPodcast =>
       const $AssetsImagesPromotedPodcastGen();
 
+  /// Directory path: assets/images/top_podcast
+  $AssetsImagesTopPodcastGen get topPodcast =>
+      const $AssetsImagesTopPodcastGen();
+
+  /// Directory path: assets/images/top_trending
+  $AssetsImagesTopTrendingGen get topTrending =>
+      const $AssetsImagesTopTrendingGen();
+
   /// Directory path: assets/images/trending_podcast
   $AssetsImagesTrendingPodcastGen get trendingPodcast =>
       const $AssetsImagesTrendingPodcastGen();
@@ -50,8 +61,46 @@ class $AssetsImagesGen {
       [appBar, background, mic, ncast1, ncast2, notifiaction, notificationIcon];
 }
 
+class $AssetsImagesFavouriteGen {
+  const $AssetsImagesFavouriteGen();
+
+  /// File path: assets/images/favourite/image_1.png
+  AssetGenImage get image1 =>
+      const AssetGenImage('assets/images/favourite/image_1.png');
+
+  /// File path: assets/images/favourite/image_2.png
+  AssetGenImage get image2 =>
+      const AssetGenImage('assets/images/favourite/image_2.png');
+
+  /// File path: assets/images/favourite/image_3.png
+  AssetGenImage get image3 =>
+      const AssetGenImage('assets/images/favourite/image_3.png');
+
+  /// File path: assets/images/favourite/image_4.png
+  AssetGenImage get image4 =>
+      const AssetGenImage('assets/images/favourite/image_4.png');
+
+  /// File path: assets/images/favourite/image_5.png
+  AssetGenImage get image5 =>
+      const AssetGenImage('assets/images/favourite/image_5.png');
+
+  /// File path: assets/images/favourite/image_6.png
+  AssetGenImage get image6 =>
+      const AssetGenImage('assets/images/favourite/image_6.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [image1, image2, image3, image4, image5, image6];
+}
+
 class $AssetsImagesIconGen {
   const $AssetsImagesIconGen();
+
+  /// File path: assets/images/icon/back.svg
+  String get back => 'assets/images/icon/back.svg';
+
+  /// File path: assets/images/icon/back_icon.svg
+  String get backIcon => 'assets/images/icon/back_icon.svg';
 
   /// File path: assets/images/icon/compass.svg
   String get compass => 'assets/images/icon/compass.svg';
@@ -75,8 +124,17 @@ class $AssetsImagesIconGen {
   String get search => 'assets/images/icon/search.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [compass, contact, headphones, heart, play, playBackground, search];
+  List<String> get values => [
+        back,
+        backIcon,
+        compass,
+        contact,
+        headphones,
+        heart,
+        play,
+        playBackground,
+        search
+      ];
 }
 
 class $AssetsImagesPromotedPodcastGen {
@@ -92,6 +150,44 @@ class $AssetsImagesPromotedPodcastGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [podcastShow, taskPodcast];
+}
+
+class $AssetsImagesTopPodcastGen {
+  const $AssetsImagesTopPodcastGen();
+
+  /// File path: assets/images/top_podcast/talk.png
+  AssetGenImage get talk =>
+      const AssetGenImage('assets/images/top_podcast/talk.png');
+
+  /// File path: assets/images/top_podcast/writing.png
+  AssetGenImage get writing =>
+      const AssetGenImage('assets/images/top_podcast/writing.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [talk, writing];
+}
+
+class $AssetsImagesTopTrendingGen {
+  const $AssetsImagesTopTrendingGen();
+
+  /// File path: assets/images/top_trending/podcast.png
+  AssetGenImage get podcast =>
+      const AssetGenImage('assets/images/top_trending/podcast.png');
+
+  /// File path: assets/images/top_trending/psycology.png
+  AssetGenImage get psycology =>
+      const AssetGenImage('assets/images/top_trending/psycology.png');
+
+  /// File path: assets/images/top_trending/question.png
+  AssetGenImage get question =>
+      const AssetGenImage('assets/images/top_trending/question.png');
+
+  /// File path: assets/images/top_trending/talk_session.png
+  AssetGenImage get talkSession =>
+      const AssetGenImage('assets/images/top_trending/talk_session.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [podcast, psycology, question, talkSession];
 }
 
 class $AssetsImagesTrendingPodcastGen {

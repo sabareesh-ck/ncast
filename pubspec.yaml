@@ -68,6 +68,9 @@ flutter:
     - assets/images/trending_podcast/
     - assets/images/top_podcast/
     - assets/images/top_trending/
+    - assets/images/favourite/
+    - assets/images/trending_screen/
+    - assets/images/trending_screen/recommended/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

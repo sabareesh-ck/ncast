@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/explore_screen.dart';
+import 'package:ncast/screen/favourite_screen.dart';
 import 'package:ncast/screen/headphone_screen.dart';
 import 'package:ncast/widgets/homescreen/bottom_navigator.dart';
 
@@ -42,7 +43,11 @@ class HomeScreen extends StatelessWidget {
         children: [
           PageView(
             controller: controller,
-            children: const [HeadphoneScreen(), ExploreScreen()],
+            children: const [
+              HeadphoneScreen(),
+              ExploreScreen(),
+              FavouriteScreen()
+            ],
           ),
           const Positioned(
             top: 700,

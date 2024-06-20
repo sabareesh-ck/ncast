@@ -25,11 +25,6 @@ const List<TrendingPodcast> topTrending = [
       duration: '15 min',
       subtitle: 'Motivational',
       title: 'Mindfulness'),
-  TrendingPodcast(
-      imagepath: 'assets/images/top_trending/podcast.png',
-      duration: '25 min',
-      subtitle: 'Educational',
-      title: 'Your Time')
 ];
 const List<TrendingPodcast> trendingPodcast = [
   TrendingPodcast(
@@ -61,4 +56,71 @@ const List<TrendingPodcast> trendingPodcast = [
 const List topPodcast = [
   TopPodcast(imagepath: 'assets/images/top_podcast/talk.png'),
   TopPodcast(imagepath: 'assets/images/top_podcast/writing.png')
+];
+const List favouritePodcast = [
+  TrendingPodcast(
+      imagepath: 'assets/images/favourite/image_1.png',
+      duration: '15 min',
+      subtitle: 'Entertainment',
+      title: 'Sunday Summer - Ep3'),
+  TrendingPodcast(
+      imagepath: 'assets/images/favourite/image_2.png',
+      duration: '35 min',
+      subtitle: 'Lifestyle',
+      title: 'Musical Soul - Vol. 1'),
+  TrendingPodcast(
+      imagepath: 'assets/images/favourite/image_3.png',
+      duration: '20 min',
+      subtitle: 'Business',
+      title: 'Talk Show - Ep4'),
+  TrendingPodcast(
+      imagepath: 'assets/images/favourite/image_4.png',
+      duration: '30 min',
+      subtitle: 'Lifestyle',
+      title: 'Musical Soul - Vol. 2'),
+  TrendingPodcast(
+      imagepath: 'assets/images/favourite/image_5.png',
+      duration: '10 min',
+      subtitle: 'Healthy Lifestyle',
+      title: 'Unravelling The Mind'),
+  TrendingPodcast(
+      imagepath: 'assets/images/favourite/image_6.png',
+      duration: '20 min',
+      subtitle: 'Enterainment',
+      title: 'Talk Show - Ep8')
+];
+List trendingScreen = const [
+  TrendingPodcast(
+    imagepath: 'assets/images/trending_screen/image_1.png',
+    duration: '15 min',
+    subtitle: 'Business',
+    title: ('Mind of an Enterprenuer'),
+  ),
+  TrendingPodcast(
+      imagepath: 'assets/images/trending_screen/image_2.png',
+      duration: '10 min',
+      subtitle: 'Healthy Lifestyle',
+      title: 'Unravelling The Mind'),
+  TrendingPodcast(
+      imagepath: 'assets/images/trending_screen/image_3.png',
+      duration: '25 min',
+      subtitle: 'Educational',
+      title: 'A Tale of Writer'),
+  TrendingPodcast(
+      imagepath: 'assets/images/trending_screen/image_4.png',
+      duration: '10 min',
+      subtitle: 'Sociology',
+      title: 'Addiction to Social!'),
+];
+List recommendedTrending = const [
+  TrendingPodcast(
+      imagepath: 'assets/images/trending_screen/recommended/image_1.png',
+      duration: '10 min',
+      subtitle: 'Health & Lifestyle',
+      title: 'Mind map'),
+  TrendingPodcast(
+      imagepath: 'assets/images/trending_screen/recommended/image_2.png',
+      duration: '15 min',
+      subtitle: 'Investigation Theories',
+      title: 'True Crime')
 ];
