@@ -1,11 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:ncast/model/podcast_list.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/player.dart';
 
-class Trending extends StatelessWidget {
-  const Trending({super.key, required this.trendingPodcast});
-  final List<dynamic> trendingPodcast;
+class RecentlyPlayed extends StatelessWidget {
+  const RecentlyPlayed({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -13,14 +16,14 @@ class Trending extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (ctx, index) {
         return Padding(
-          padding: const EdgeInsets.only(left: 25, top: 20),
+          padding: const EdgeInsets.only(top: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 height: 96,
                 width: 108,
-                child: Image.asset(trendingPodcast[index].imagepath),
+                child: Image.asset(recentlyPlayed[index].imagepath),
               ),
               Expanded(
                 child: Padding(
@@ -30,7 +33,7 @@ class Trending extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        trendingPodcast[index].title,
+                        recentlyPlayed[index].title,
                         style: const TextStyle(
                             color: Color(0xFF1F1F1F),
                             fontSize: 16,
@@ -40,21 +43,32 @@ class Trending extends StatelessWidget {
                         height: 4,
                       ),
                       Text(
-                        trendingPodcast[index].subtitle,
+                        '${recentlyPlayed[index].durationRemaining} min remaining',
                         style: TextStyle(
                           color: const Color(0xFF1F1F1F).withOpacity(0.7),
                           fontSize: 14,
                         ),
                       ),
                       const SizedBox(
-                        height: 4,
+                        height: 15,
                       ),
-                      Text(
-                        trendingPodcast[index].duration,
-                        style: TextStyle(
-                          color: const Color(0xFF1F1F1F).withOpacity(0.7),
-                          fontSize: 14,
-                        ),
+                      Stack(
+                        children: [
+                          Container(
+                            height: 8,
+                            width: 176,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFE9E9E9),
+                                borderRadius: BorderRadius.circular(10)),
+                          ),
+                          Container(
+                            height: 8,
+                            width: Random().nextDouble() * 176,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFFF5757),
+                                borderRadius: BorderRadius.circular(10)),
+                          )
+                        ],
                       )
                     ],
                   ),
@@ -87,7 +101,7 @@ class Trending extends StatelessWidget {
           ),
         );
       },
-      itemCount: trendingPodcast.length,
+      itemCount: recentlyPlayed.length,
     );
   }
 }

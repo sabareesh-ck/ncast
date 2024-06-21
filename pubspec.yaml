@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_svg: ^2.0.10+1
   flutter_gen: ^5.5.0+1
+  loading_indicator: ^3.1.1
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,8 @@ flutter:
     - assets/images/favourite/
     - assets/images/trending_screen/
     - assets/images/trending_screen/recommended/
+    - assets/images/profile/
+    - assets/images/profile/recently_played/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

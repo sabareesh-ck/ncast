@@ -20,3 +20,14 @@ class TrendingPodcast {
   final String subtitle;
   final String duration;
 }
+
+class RecentlyPlayedPodcast {
+  const RecentlyPlayedPodcast({
+    required this.imagepath,
+    required this.title,
+    required this.durationRemaining,
+  });
+  final String imagepath;
+  final String title;
+  final String durationRemaining;
+}

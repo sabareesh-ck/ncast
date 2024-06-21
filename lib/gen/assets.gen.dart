@@ -40,6 +40,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/notification_icon.svg
   String get notificationIcon => 'assets/images/notification_icon.svg';
 
+  /// File path: assets/images/player.png
+  AssetGenImage get player => const AssetGenImage('assets/images/player.png');
+
+  /// Directory path: assets/images/profile
+  $AssetsImagesProfileGen get profile => const $AssetsImagesProfileGen();
+
   /// Directory path: assets/images/promoted_podcast
   $AssetsImagesPromotedPodcastGen get promotedPodcast =>
       const $AssetsImagesPromotedPodcastGen();
@@ -56,9 +62,21 @@ class $AssetsImagesGen {
   $AssetsImagesTrendingPodcastGen get trendingPodcast =>
       const $AssetsImagesTrendingPodcastGen();
 
+  /// Directory path: assets/images/trending_screen
+  $AssetsImagesTrendingScreenGen get trendingScreen =>
+      const $AssetsImagesTrendingScreenGen();
+
   /// List of all assets
-  List<dynamic> get values =>
-      [appBar, background, mic, ncast1, ncast2, notifiaction, notificationIcon];
+  List<dynamic> get values => [
+        appBar,
+        background,
+        mic,
+        ncast1,
+        ncast2,
+        notifiaction,
+        notificationIcon,
+        player
+      ];
 }
 
 class $AssetsImagesFavouriteGen {
@@ -96,6 +114,9 @@ class $AssetsImagesFavouriteGen {
 class $AssetsImagesIconGen {
   const $AssetsImagesIconGen();
 
+  /// File path: assets/images/icon/archive.svg
+  String get archive => 'assets/images/icon/archive.svg';
+
   /// File path: assets/images/icon/back.svg
   String get back => 'assets/images/icon/back.svg';
 
@@ -105,8 +126,17 @@ class $AssetsImagesIconGen {
   /// File path: assets/images/icon/compass.svg
   String get compass => 'assets/images/icon/compass.svg';
 
+  /// File path: assets/images/icon/compass_tap.svg
+  String get compassTap => 'assets/images/icon/compass_tap.svg';
+
   /// File path: assets/images/icon/contact.svg
   String get contact => 'assets/images/icon/contact.svg';
+
+  /// File path: assets/images/icon/dot.svg
+  String get dot => 'assets/images/icon/dot.svg';
+
+  /// File path: assets/images/icon/headphone_tap.svg
+  String get headphoneTap => 'assets/images/icon/headphone_tap.svg';
 
   /// File path: assets/images/icon/headphones.svg
   String get headphones => 'assets/images/icon/headphones.svg';
@@ -114,27 +144,84 @@ class $AssetsImagesIconGen {
   /// File path: assets/images/icon/heart.svg
   String get heart => 'assets/images/icon/heart.svg';
 
+  /// File path: assets/images/icon/heart_tap.svg
+  String get heartTap => 'assets/images/icon/heart_tap.svg';
+
   /// File path: assets/images/icon/play.svg
   String get play => 'assets/images/icon/play.svg';
 
   /// File path: assets/images/icon/play_background.svg
   String get playBackground => 'assets/images/icon/play_background.svg';
 
+  /// File path: assets/images/icon/player_1.svg
+  String get player1 => 'assets/images/icon/player_1.svg';
+
+  /// File path: assets/images/icon/player_2.svg
+  String get player2 => 'assets/images/icon/player_2.svg';
+
+  /// File path: assets/images/icon/player_3.svg
+  String get player3 => 'assets/images/icon/player_3.svg';
+
+  /// File path: assets/images/icon/player_4.svg
+  String get player4 => 'assets/images/icon/player_4.svg';
+
+  /// File path: assets/images/icon/player_5.svg
+  String get player5 => 'assets/images/icon/player_5.svg';
+
+  /// File path: assets/images/icon/profile_tap.svg
+  String get profileTap => 'assets/images/icon/profile_tap.svg';
+
   /// File path: assets/images/icon/search.svg
   String get search => 'assets/images/icon/search.svg';
 
+  /// File path: assets/images/icon/share.svg
+  String get share => 'assets/images/icon/share.svg';
+
   /// List of all assets
   List<String> get values => [
+        archive,
         back,
         backIcon,
         compass,
+        compassTap,
         contact,
+        dot,
+        headphoneTap,
         headphones,
         heart,
+        heartTap,
         play,
         playBackground,
-        search
+        player1,
+        player2,
+        player3,
+        player4,
+        player5,
+        profileTap,
+        search,
+        share
       ];
+}
+
+class $AssetsImagesProfileGen {
+  const $AssetsImagesProfileGen();
+
+  /// File path: assets/images/profile/image.png
+  AssetGenImage get image =>
+      const AssetGenImage('assets/images/profile/image.png');
+
+  /// File path: assets/images/profile/image_background.svg
+  String get imageBackground => 'assets/images/profile/image_background.svg';
+
+  /// Directory path: assets/images/profile/recently_played
+  $AssetsImagesProfileRecentlyPlayedGen get recentlyPlayed =>
+      const $AssetsImagesProfileRecentlyPlayedGen();
+
+  /// File path: assets/images/profile/shade.svg
+  String get shade => 'assets/images/profile/shade.svg';
+
+  /// List of all assets
+  List<dynamic> get values => [image, imageBackground, shade];
 }
 
 class $AssetsImagesPromotedPodcastGen {
@@ -207,6 +294,63 @@ class $AssetsImagesTrendingPodcastGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [festival, see, time];
+}
+
+class $AssetsImagesTrendingScreenGen {
+  const $AssetsImagesTrendingScreenGen();
+
+  /// File path: assets/images/trending_screen/image_1.png
+  AssetGenImage get image1 =>
+      const AssetGenImage('assets/images/trending_screen/image_1.png');
+
+  /// File path: assets/images/trending_screen/image_2.png
+  AssetGenImage get image2 =>
+      const AssetGenImage('assets/images/trending_screen/image_2.png');
+
+  /// File path: assets/images/trending_screen/image_3.png
+  AssetGenImage get image3 =>
+      const AssetGenImage('assets/images/trending_screen/image_3.png');
+
+  /// File path: assets/images/trending_screen/image_4.png
+  AssetGenImage get image4 =>
+      const AssetGenImage('assets/images/trending_screen/image_4.png');
+
+  /// Directory path: assets/images/trending_screen/recommended
+  $AssetsImagesTrendingScreenRecommendedGen get recommended =>
+      const $AssetsImagesTrendingScreenRecommendedGen();
+
+  /// List of all assets
+  List<AssetGenImage> get values => [image1, image2, image3, image4];
+}
+
+class $AssetsImagesProfileRecentlyPlayedGen {
+  const $AssetsImagesProfileRecentlyPlayedGen();
+
+  /// File path: assets/images/profile/recently_played/image_1.png
+  AssetGenImage get image1 =>
+      const AssetGenImage('assets/images/profile/recently_played/image_1.png');
+
+  /// File path: assets/images/profile/recently_played/image_2.png
+  AssetGenImage get image2 =>
+      const AssetGenImage('assets/images/profile/recently_played/image_2.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [image1, image2];
+}
+
+class $AssetsImagesTrendingScreenRecommendedGen {
+  const $AssetsImagesTrendingScreenRecommendedGen();
+
+  /// File path: assets/images/trending_screen/recommended/image_1.png
+  AssetGenImage get image1 => const AssetGenImage(
+      'assets/images/trending_screen/recommended/image_1.png');
+
+  /// File path: assets/images/trending_screen/recommended/image_2.png
+  AssetGenImage get image2 => const AssetGenImage(
+      'assets/images/trending_screen/recommended/image_2.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [image1, image2];
 }
 
 class Assets {

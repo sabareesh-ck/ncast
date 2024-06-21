@@ -94,7 +94,7 @@ List trendingScreen = const [
     imagepath: 'assets/images/trending_screen/image_1.png',
     duration: '15 min',
     subtitle: 'Business',
-    title: ('Mind of an Enterprenuer'),
+    title: 'Mind of an Enterprenuer',
   ),
   TrendingPodcast(
       imagepath: 'assets/images/trending_screen/image_2.png',
@@ -123,4 +123,19 @@ List recommendedTrending = const [
       duration: '15 min',
       subtitle: 'Investigation Theories',
       title: 'True Crime')
+];
+
+List recentlyPlayed = const [
+  RecentlyPlayedPodcast(
+      imagepath: 'assets/images/profile/recently_played/image_1.png',
+      title: 'True Crime',
+      durationRemaining: '20'),
+  RecentlyPlayedPodcast(
+      imagepath: 'assets/images/profile/recently_played/image_2.png',
+      title: 'See Radio',
+      durationRemaining: '35'),
+  RecentlyPlayedPodcast(
+      imagepath: 'assets/images/top_trending/psycology.png',
+      title: 'The Psycology',
+      durationRemaining: '15')
 ];

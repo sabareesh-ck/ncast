@@ -4,6 +4,7 @@ import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/explore_screen.dart';
 import 'package:ncast/screen/favourite_screen.dart';
 import 'package:ncast/screen/headphone_screen.dart';
+import 'package:ncast/screen/profile_screen.dart';
 import 'package:ncast/widgets/homescreen/bottom_navigator.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -46,14 +47,17 @@ class HomeScreen extends StatelessWidget {
             children: const [
               HeadphoneScreen(),
               ExploreScreen(),
-              FavouriteScreen()
+              FavouriteScreen(),
+              ProfileScreen()
             ],
           ),
-          const Positioned(
+          Positioned(
             top: 700,
             left: 20,
             right: 20,
-            child: BottomNavigator(),
+            child: BottomNavigator(
+              controller: controller,
+            ),
           ),
         ],
       ),
