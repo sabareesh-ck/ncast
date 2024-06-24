@@ -53,7 +53,9 @@ class Loading extends StatelessWidget {
           child: LoadingIndicator(
               pause: true,
               strokeWidth: 10,
-              colors: [const Color(0xFF1F1F1F).withOpacity(0.2)],
+              colors: [
+                const Color(0xFF1F1F1F).withOpacity(0.2),
+              ],
               indicatorType: Indicator.lineScalePulseOutRapid),
         ),
         Container(
@@ -63,7 +65,9 @@ class Loading extends StatelessWidget {
           child: LoadingIndicator(
               pause: true,
               strokeWidth: 10,
-              colors: [const Color(0xFF1F1F1F).withOpacity(0.2)],
+              colors: [
+                const Color(0xFF1F1F1F).withOpacity(0.2),
+              ],
               indicatorType: Indicator.lineScalePulseOutRapid),
         ),
         Container(

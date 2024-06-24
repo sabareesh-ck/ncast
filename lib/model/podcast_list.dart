@@ -1,6 +1,6 @@
 import 'package:ncast/model/promoted_podcast.dart';
 
-const List promatedPodcast = [
+const List<PromotedPodcast> promatedPodcast = [
   PromotedPodcast(imagepath: 'assets/images/promoted_podcast/task_podcast.png'),
   PromotedPodcast(imagepath: 'assets/images/promoted_podcast/podcast_show.png'),
 ];

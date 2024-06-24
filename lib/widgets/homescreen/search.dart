@@ -4,10 +4,10 @@ import 'package:ncast/gen/assets.gen.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
+
   @override
   Widget build(BuildContext context) {
     final searchcontroller = TextEditingController();
-
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, top: 40),
       child: Container(

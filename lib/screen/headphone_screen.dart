@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
 import 'package:ncast/model/podcast_list.dart';
 import 'package:ncast/screen/trending_podcast.dart';
 import 'package:ncast/widgets/homescreen/promoted.dart';
@@ -63,8 +65,17 @@ class HeadphoneScreen extends StatelessWidget {
               ],
             ),
           ),
-          const Trending(
-            trendingPodcast: trendingPodcast,
+          BlocBuilder<HomeScreenCubitCubit, HomeScreenCubitState>(
+            builder: (context, state) {
+              if (state is HomeScreenLoadFailed) {
+                debugPrint("Handle the error");
+              } else if (state is HomeScreenLoaded) {
+                return Trending(
+                  trendingPodcast: state.trendingPodcasts,
+                );
+              }
+              return const Center(child: CircularProgressIndicator());
+            },
           )
         ],
       ),

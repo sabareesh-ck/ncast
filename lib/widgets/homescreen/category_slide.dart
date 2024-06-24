@@ -41,11 +41,12 @@ class _CategorySlideState extends State<CategorySlide> {
                 child: Text(
                   categories[index].name,
                   style: TextStyle(
-                      color: selected == index
-                          ? const Color(0xFFFFFFFF)
-                          : const Color(0xFF1F1F1F),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+                    color: selected == index
+                        ? const Color(0xFFFFFFFF)
+                        : const Color(0xFF1F1F1F),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
