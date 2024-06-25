@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ncast/bloc/bottom_navigator_bloc.dart';
+import 'package:ncast/cubit/explore_screen_cubit.dart';
+import 'package:ncast/cubit/favourite_screen_cubit.dart';
 import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
+import 'package:ncast/cubit/profile_screen_cubit.dart';
 import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/explore_screen.dart';
 import 'package:ncast/screen/favourite_screen.dart';
@@ -14,8 +18,20 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = PageController(initialPage: 0);
-    return BlocProvider(
-      create: (context) => HomeScreenCubitCubit()..loadPromotedPodcasts(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HomeScreenCubitCubit()..loadPromotedPodcasts(),
+        ),
+        BlocProvider(
+          create: (context) => ExploreScreenCubit()..loadedPodcasts(),
+        ),
+        BlocProvider(
+            create: (context) => FavouriteScreenCubit()..loadedPodcasts()),
+        BlocProvider(
+            create: (context) => ProfileScreenCubit()..loadedPodcasts()),
+        BlocProvider(create: (context) => BottomNavigatorBloc())
+      ],
       child: Scaffold(
         appBar: AppBar(
           leading: Padding(

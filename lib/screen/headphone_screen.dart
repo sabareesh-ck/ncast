@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
-import 'package:ncast/model/podcast_list.dart';
 import 'package:ncast/screen/trending_podcast.dart';
 import 'package:ncast/widgets/homescreen/promoted.dart';
 import 'package:ncast/widgets/homescreen/search.dart';
@@ -26,7 +25,22 @@ class HeadphoneScreen extends StatelessWidget {
                   color: Color(0xFF1F1F1F)),
             ),
           ),
-          const Promoted(),
+          BlocBuilder<HomeScreenCubitCubit, HomeScreenCubitState>(
+            builder: (context, state) {
+              if (state is HomeScreenLoaded) {
+                return Promoted(
+                  showLoading: false,
+                  promotedPodcasts: state.promotedPodcasts,
+                );
+              }
+              if (state is HomeScreenLoading) {
+                return Promoted(
+                    showLoading: true,
+                    promotedPodcasts: state.promotedPodcasts);
+              }
+              return const SizedBox.shrink();
+            },
+          ),
           Padding(
             padding: const EdgeInsets.only(
               right: 55,
@@ -72,9 +86,15 @@ class HeadphoneScreen extends StatelessWidget {
               } else if (state is HomeScreenLoaded) {
                 return Trending(
                   trendingPodcast: state.trendingPodcasts,
+                  showLoading: false,
+                );
+              } else if (state is HomeScreenLoading) {
+                return Trending(
+                  trendingPodcast: state.trendingPodcasts,
+                  showLoading: true,
                 );
               }
-              return const Center(child: CircularProgressIndicator());
+              return const SizedBox.shrink();
             },
           )
         ],

@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 
@@ -10,6 +11,8 @@ class HomeScreenCubitCubit extends Cubit<HomeScreenCubitState> {
   HomeScreenCubitCubit() : super(const HomeScreenCubitInitial());
 
   Future<void> loadPromotedPodcasts() async {
+    emit(const HomeScreenLoading(
+        promotedPodcasts: promatedPodcast, trendingPodcasts: trendingPodcast));
     Future.delayed(const Duration(seconds: 3), () {
       emit(const HomeScreenLoaded(
           promotedPodcasts: promatedPodcast,

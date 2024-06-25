@@ -1,48 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class Promoted extends StatelessWidget {
-  const Promoted({super.key});
+  const Promoted(
+      {super.key, required this.showLoading, required this.promotedPodcasts});
+  final List promotedPodcasts;
+  final bool showLoading;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 210,
-      width: 400,
-      child: BlocBuilder<HomeScreenCubitCubit, HomeScreenCubitState>(
-        builder: (context, state) {
-          if (state is HomeScreenLoadFailed) {
-            debugPrint('Handle error case');
-          }
+        height: 210,
+        width: 400,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Skeletonizer(
+            enabled: showLoading,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: promotedPodcasts.length,
+              itemBuilder: (ctx, index) {
+                final promotedPodcast = promotedPodcasts[index];
 
-          if (state is HomeScreenLoaded) {
-            return Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: state.promotedPodcasts.length,
-                itemBuilder: (ctx, index) {
-                  final promotedPodcast = state.promotedPodcasts[index];
-
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                      top: 20,
-                      left: 15,
-                    ),
-                    child: Image.asset(
-                      promotedPodcast.imagepath,
-                      fit: BoxFit.fill,
-                    ),
-                  );
-                },
-              ),
-            );
-          }
-
-          return const Center(child: CircularProgressIndicator());
-        },
-      ),
-    );
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    top: 20,
+                    left: 15,
+                  ),
+                  child: Image.asset(
+                    promotedPodcast.imagepath,
+                    fit: BoxFit.fill,
+                  ),
+                );
+              },
+            ),
+          ),
+        ));
   }
 }

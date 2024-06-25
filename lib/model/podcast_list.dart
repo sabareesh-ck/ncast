@@ -53,11 +53,11 @@ const List<TrendingPodcast> trendingPodcast = [
       subtitle: 'Educational',
       title: 'Your Time')
 ];
-const List topPodcast = [
+const List<TopPodcast> topPodcast = [
   TopPodcast(imagepath: 'assets/images/top_podcast/talk.png'),
   TopPodcast(imagepath: 'assets/images/top_podcast/writing.png')
 ];
-const List favouritePodcast = [
+const List<TrendingPodcast> favouritePodcast = [
   TrendingPodcast(
       imagepath: 'assets/images/favourite/image_1.png',
       duration: '15 min',
@@ -89,7 +89,7 @@ const List favouritePodcast = [
       subtitle: 'Enterainment',
       title: 'Talk Show - Ep8')
 ];
-List trendingScreen = const [
+List<TrendingPodcast> trendingScreen = const [
   TrendingPodcast(
     imagepath: 'assets/images/trending_screen/image_1.png',
     duration: '15 min',
@@ -112,7 +112,7 @@ List trendingScreen = const [
       subtitle: 'Sociology',
       title: 'Addiction to Social!'),
 ];
-List recommendedTrending = const [
+List<TrendingPodcast> recommendedTrending = const [
   TrendingPodcast(
       imagepath: 'assets/images/trending_screen/recommended/image_1.png',
       duration: '10 min',
@@ -125,7 +125,7 @@ List recommendedTrending = const [
       title: 'True Crime')
 ];
 
-List recentlyPlayed = const [
+List<RecentlyPlayedPodcast> recentlyPlayed = const [
   RecentlyPlayedPodcast(
       imagepath: 'assets/images/profile/recently_played/image_1.png',
       title: 'True Crime',
