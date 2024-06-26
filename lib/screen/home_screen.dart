@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:ncast/bloc/bottom_navigator_bloc.dart';
 import 'package:ncast/cubit/explore_screen_cubit.dart';
 import 'package:ncast/cubit/favourite_screen_cubit.dart';
 import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
 import 'package:ncast/cubit/profile_screen_cubit.dart';
+
 import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/explore_screen.dart';
 import 'package:ncast/screen/favourite_screen.dart';
 import 'package:ncast/screen/headphone_screen.dart';
 import 'package:ncast/screen/profile_screen.dart';
 import 'package:ncast/widgets/homescreen/bottom_navigator.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -62,15 +64,33 @@ class HomeScreen extends StatelessWidget {
         ),
         body: Stack(
           children: [
-            PageView(
-              controller: controller,
-              children: const [
-                HeadphoneScreen(),
-                ExploreScreen(),
-                FavouriteScreen(),
-                ProfileScreen()
-              ],
-            ),
+            Builder(builder: (context) {
+              return PageView(
+                onPageChanged: (value) {
+                  if (value == 0) {
+                    context.read<BottomNavigatorBloc>().add(HomeScreenTap());
+                  }
+                  if (value == 1) {
+                    context.read<BottomNavigatorBloc>().add(ExploreScreenTap());
+                  }
+                  if (value == 2) {
+                    context
+                        .read<BottomNavigatorBloc>()
+                        .add(FavouriteScreenTap());
+                  }
+                  if (value == 3) {
+                    context.read<BottomNavigatorBloc>().add(ProfileScreenTap());
+                  }
+                },
+                controller: controller,
+                children: const [
+                  HeadphoneScreen(),
+                  ExploreScreen(),
+                  FavouriteScreen(),
+                  ProfileScreen()
+                ],
+              );
+            }),
             Positioned(
               top: 700,
               left: 20,

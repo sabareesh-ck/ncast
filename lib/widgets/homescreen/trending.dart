@@ -17,6 +17,7 @@ class Trending extends StatelessWidget {
       child: showLoading
           ? const DummyLoader()
           : ListView.builder(
+              itemCount: trendingPodcast.length,
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemBuilder: (ctx, index) {
@@ -97,7 +98,6 @@ class Trending extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: trendingPodcast.length,
             ),
     );
   }
