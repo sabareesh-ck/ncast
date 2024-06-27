@@ -14,9 +14,5 @@ final class ProfileScreenLoaded extends ProfileScreenState {
 }
 
 final class ProfileScreenLoading extends ProfileScreenState {
-  final List<RecentlyPlayedPodcast> recentlyPlayed;
-
-  ProfileScreenLoading({
-    required this.recentlyPlayed,
-  });
+  ProfileScreenLoading();
 }

@@ -14,9 +14,5 @@ final class TrendingScreenLoaded extends TrendingScreenState {
 }
 
 final class TrendingScreenLoading extends TrendingScreenState {
-  final List<TrendingPodcast> trendingPodcasts;
-  final List<TrendingPodcast> trendingScreen;
-
-  TrendingScreenLoading(
-      {required this.trendingPodcasts, required this.trendingScreen});
+  TrendingScreenLoading();
 }

@@ -6,13 +6,7 @@ sealed class ExploreScreenState {}
 final class ExploreScreenInitial extends ExploreScreenState {}
 
 final class ExploreScreenLoading extends ExploreScreenState {
-  final List<TopPodcast> topPodcast;
-  final List<TrendingPodcast> trendingPodcasts;
-
-  ExploreScreenLoading({
-    required this.topPodcast,
-    required this.trendingPodcasts,
-  });
+  ExploreScreenLoading();
 }
 
 final class ExploreScreenLoaded extends ExploreScreenState {

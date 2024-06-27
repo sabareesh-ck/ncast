@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ncast/cubit/explore_screen_cubit.dart';
 import 'package:ncast/widgets/homescreen/category_slide.dart';
+import 'package:ncast/widgets/homescreen/dummy_loader.dart';
+import 'package:ncast/widgets/homescreen/dummy_promoted.dart';
 import 'package:ncast/widgets/homescreen/top_podcast.dart';
 import 'package:ncast/widgets/homescreen/trending.dart';
 
@@ -24,22 +26,26 @@ class ExploreScreen extends StatelessWidget {
                   color: Color(0xFF1F1F1F)),
             ),
           ),
-          BlocBuilder<ExploreScreenCubit, ExploreScreenState>(
-            builder: (context, state) {
-              if (state is ExploreScreenLoaded) {
-                return TopPodcast(
-                  showLoading: false,
-                  topPodcast: state.topPodcast,
-                );
-              }
-              if (state is ExploreScreenLoading) {
-                return TopPodcast(
-                  showLoading: true,
-                  topPodcast: state.topPodcast,
-                );
-              }
-              return const SizedBox.shrink();
-            },
+          SizedBox(
+            height: 210,
+            width: 400,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: BlocBuilder<ExploreScreenCubit, ExploreScreenState>(
+                builder: (context, state) {
+                  if (state is ExploreScreenLoaded) {
+                    return TopPodcast(
+                      showLoading: false,
+                      topPodcast: state.topPodcast,
+                    );
+                  }
+                  if (state is ExploreScreenLoading) {
+                    return const DummyPromoted();
+                  }
+                  return const SizedBox.shrink();
+                },
+              ),
+            ),
           ),
           const CategorySlide(),
           BlocBuilder<ExploreScreenCubit, ExploreScreenState>(
@@ -51,10 +57,7 @@ class ExploreScreen extends StatelessWidget {
                 );
               }
               if (state is ExploreScreenLoading) {
-                return Trending(
-                  trendingPodcast: state.trendingPodcasts,
-                  showLoading: true,
-                );
+                return const DummyLoader();
               }
               return const SizedBox.shrink();
             },

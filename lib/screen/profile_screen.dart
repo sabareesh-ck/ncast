@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ncast/cubit/profile_screen_cubit.dart';
+import 'package:ncast/widgets/homescreen/dummy_loader.dart';
 import 'package:ncast/widgets/homescreen/profile_information.dart';
 import 'package:ncast/widgets/homescreen/recently_played.dart';
 
@@ -36,10 +37,7 @@ class ProfileScreen extends StatelessWidget {
                   );
                 }
                 if (state is ProfileScreenLoading) {
-                  return RecentlyPlayed(
-                    showLoading: true,
-                    recentlyPlayed: state.recentlyPlayed,
-                  );
+                  return const DummyLoader();
                 }
                 return const SizedBox.shrink();
               },

@@ -6,11 +6,7 @@ sealed class FavouriteScreenState {}
 final class FavouriteScreenInitial extends FavouriteScreenState {}
 
 final class FavouriteScreenLoading extends FavouriteScreenState {
-  final List<TrendingPodcast> favouritePodcasts;
-
-  FavouriteScreenLoading({
-    required this.favouritePodcasts,
-  });
+  FavouriteScreenLoading();
 }
 
 final class FavouriteScreenLoaded extends FavouriteScreenState {

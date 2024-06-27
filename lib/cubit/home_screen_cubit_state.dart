@@ -10,13 +10,7 @@ final class HomeScreenCubitInitial extends HomeScreenCubitState {
 }
 
 final class HomeScreenLoading extends HomeScreenCubitState {
-  final List<PromotedPodcast> promotedPodcasts;
-  final List<TrendingPodcast> trendingPodcasts;
-
-  const HomeScreenLoading({
-    required this.promotedPodcasts,
-    required this.trendingPodcasts,
-  });
+  const HomeScreenLoading();
 }
 
 final class HomeScreenLoaded extends HomeScreenCubitState {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ncast/cubit/favourite_screen_cubit.dart';
+import 'package:ncast/widgets/homescreen/dummy_loader.dart';
 import 'package:ncast/widgets/homescreen/trending.dart';
 
 class FavouriteScreen extends StatelessWidget {
@@ -28,10 +29,7 @@ class FavouriteScreen extends StatelessWidget {
             BlocBuilder<FavouriteScreenCubit, FavouriteScreenState>(
               builder: (context, state) {
                 if (state is FavouriteScreenLoading) {
-                  return Trending(
-                    trendingPodcast: state.favouritePodcasts,
-                    showLoading: true,
-                  );
+                  return const DummyLoader();
                 }
                 if (state is FavouriteScreenLoaded) {
                   return Trending(

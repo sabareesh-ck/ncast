@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/cubit/trending_screen_cubit.dart';
 import 'package:ncast/gen/assets.gen.dart';
+import 'package:ncast/widgets/homescreen/dummy_gridview.dart';
+import 'package:ncast/widgets/homescreen/dummy_loader.dart';
 import 'package:ncast/widgets/homescreen/podcast_gridview.dart';
 import 'package:ncast/widgets/homescreen/search.dart';
 import 'package:ncast/widgets/homescreen/trending.dart';
@@ -52,10 +54,7 @@ class TrendingPodcastScreen extends StatelessWidget {
                 child: BlocBuilder<TrendingScreenCubit, TrendingScreenState>(
                   builder: (context, state) {
                     if (state is TrendingScreenLoading) {
-                      return PodcastGridview(
-                        trendingScreen: state.trendingScreen,
-                        showLoading: true,
-                      );
+                      return const DummyGridview();
                     }
                     if (state is TrendingScreenLoaded) {
                       return PodcastGridview(
@@ -89,10 +88,7 @@ class TrendingPodcastScreen extends StatelessWidget {
                     );
                   }
                   if (state is TrendingScreenLoading) {
-                    return Trending(
-                      trendingPodcast: state.trendingPodcasts,
-                      showLoading: true,
-                    );
+                    return const DummyLoader();
                   }
                   return const SizedBox.shrink();
                 },

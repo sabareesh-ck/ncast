@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "157770815332",
+    "project_id": "ncast-app",
+    "storage_bucket": "ncast-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157770815332:android:660ecde1190f87c36a8c71",
+        "android_client_info": {
+          "package_name": "com.example.ncast"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeyZ7b8byJK0E0geyYeeXnH45uqBfs0Dc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
 import 'package:ncast/screen/trending_podcast.dart';
+import 'package:ncast/widgets/homescreen/dummy_loader.dart';
+import 'package:ncast/widgets/homescreen/dummy_promoted.dart';
 import 'package:ncast/widgets/homescreen/promoted.dart';
 import 'package:ncast/widgets/homescreen/search.dart';
 import 'package:ncast/widgets/homescreen/trending.dart';
@@ -25,21 +27,26 @@ class HeadphoneScreen extends StatelessWidget {
                   color: Color(0xFF1F1F1F)),
             ),
           ),
-          BlocBuilder<HomeScreenCubitCubit, HomeScreenCubitState>(
-            builder: (context, state) {
-              if (state is HomeScreenLoaded) {
-                return Promoted(
-                  showLoading: false,
-                  promotedPodcasts: state.promotedPodcasts,
-                );
-              }
-              if (state is HomeScreenLoading) {
-                return Promoted(
-                    showLoading: true,
-                    promotedPodcasts: state.promotedPodcasts);
-              }
-              return const SizedBox.shrink();
-            },
+          SizedBox(
+            height: 210,
+            width: 400,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: BlocBuilder<HomeScreenCubitCubit, HomeScreenCubitState>(
+                builder: (context, state) {
+                  if (state is HomeScreenLoaded) {
+                    return Promoted(
+                      showLoading: false,
+                      promotedPodcasts: state.promotedPodcasts,
+                    );
+                  }
+                  if (state is HomeScreenLoading) {
+                    return const DummyPromoted();
+                  }
+                  return const SizedBox.shrink();
+                },
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -89,10 +96,7 @@ class HeadphoneScreen extends StatelessWidget {
                   showLoading: false,
                 );
               } else if (state is HomeScreenLoading) {
-                return Trending(
-                  trendingPodcast: state.trendingPodcasts,
-                  showLoading: true,
-                );
+                return const DummyLoader();
               }
               return const SizedBox.shrink();
             },
