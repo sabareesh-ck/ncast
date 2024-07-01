@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             create: (context) => FavouriteScreenCubit()..loadedPodcasts()),
         BlocProvider(
             create: (context) => ProfileScreenCubit()..loadedPodcasts()),
-        BlocProvider(create: (context) => BottomNavigatorBloc())
+        BlocProvider(create: (context) => BottomNavigatorBloc()),
       ],
       child: Scaffold(
         appBar: AppBar(

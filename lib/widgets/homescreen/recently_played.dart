@@ -99,7 +99,13 @@ class RecentlyPlayed extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (ctx) => const Player(),
+                                builder: (ctx) => Player(
+                                  imagepath: recentlyPlayed[index].imagepath,
+                                  title: recentlyPlayed[index].title,
+                                  duration:
+                                      recentlyPlayed[index].durationRemaining,
+                                  subtitle: 'Dummy Subtitle',
+                                ),
                               ),
                             );
                           },

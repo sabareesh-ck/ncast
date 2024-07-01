@@ -12,7 +12,12 @@
           "package_name": "com.example.ncast"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "157770815332-emdgtt4krv2279hr9822vsmiudluotoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBeyZ7b8byJK0E0geyYeeXnH45uqBfs0Dc"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157770815332-emdgtt4krv2279hr9822vsmiudluotoi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "157770815332-f8nj79vplt40jfgm3mnc5l29088i665g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ncast"
+              }
+            }
+          ]
         }
       }
     }

@@ -11,9 +11,8 @@ class HomeScreenCubitCubit extends Cubit<HomeScreenCubitState> {
 
   Future<void> loadPromotedPodcasts() async {
     List<TrendingPodcast> trending;
-
     emit(const HomeScreenLoading());
-    // addItem();
+    //addTrendingPodcast();
     //addPromotedPodcast();
     trending = await getTrendingPodcast();
     promoted = await getPromotedPodcast();

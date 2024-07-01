@@ -5,7 +5,17 @@ import 'package:ncast/widgets/homescreen/loading.dart';
 import 'package:ncast/widgets/homescreen/player_image.dart';
 
 class Player extends StatelessWidget {
-  const Player({super.key});
+  const Player({
+    super.key,
+    required this.imagepath,
+    required this.title,
+    required this.subtitle,
+    required this.duration,
+  });
+  final String imagepath;
+  final String title;
+  final String subtitle;
+  final String duration;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,13 +67,15 @@ class Player extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const PlayerImage(),
+          PlayerImage(
+            imagepath: imagepath,
+          ),
           const SizedBox(
             height: 15,
           ),
-          const Text(
-            "Sunday Vibes - Rift",
-            style: TextStyle(
+          Text(
+            title,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 24,
               color: Color(0xFF1F1F1F),
@@ -73,7 +85,7 @@ class Player extends StatelessWidget {
             height: 4,
           ),
           Text(
-            "Entertainment",
+            subtitle,
             style: TextStyle(
               fontSize: 16,
               color: const Color(0xFF1F1F1F).withOpacity(0.7),
@@ -109,7 +121,10 @@ class Player extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 10, right: 10, bottom: 35),
             child: const Padding(
-              padding: EdgeInsets.only(left: 15.0, top: 15),
+              padding: EdgeInsets.only(
+                left: 8.0,
+                top: 15,
+              ),
               child: Loading(),
             ),
           ),

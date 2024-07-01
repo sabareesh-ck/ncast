@@ -72,7 +72,12 @@ class Trending extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (ctx) => const Player(),
+                          builder: (ctx) => Player(
+                            imagepath: trendingPodcast[index].imagepath,
+                            title: trendingPodcast[index].title,
+                            duration: trendingPodcast[index].duration,
+                            subtitle: trendingPodcast[index].subtitle,
+                          ),
                         ),
                       );
                     },

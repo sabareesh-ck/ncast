@@ -11,6 +11,7 @@ import 'package:ncast/widgets/homescreen/trending.dart';
 
 class TrendingPodcastScreen extends StatelessWidget {
   const TrendingPodcastScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -21,7 +22,9 @@ class TrendingPodcastScreen extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: GestureDetector(
-              onTap: Navigator.of(context).pop,
+              onTap: () {
+                Navigator.of(context).pop;
+              },
               child: Stack(
                 alignment: AlignmentDirectional.center,
                 children: [
@@ -90,6 +93,7 @@ class TrendingPodcastScreen extends StatelessWidget {
                   if (state is TrendingScreenLoading) {
                     return const DummyLoader();
                   }
+
                   return const SizedBox.shrink();
                 },
               )

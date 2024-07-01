@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ncast/model/podcast_list.dart';
 import 'package:ncast/model/promoted_podcast.dart';
@@ -8,14 +7,13 @@ final db = FirebaseFirestore.instance;
 void addTrendingPodcast() {
   for (final podcast in trendingPodcast) {
     final image1 = {
-      'imagepath': podcast.imagepath,
       'createAt': Timestamp.now(),
       'duration': podcast.duration,
       'subtitle': podcast.subtitle,
       'title': podcast.title
     };
 
-    db.collection("trendingPodcast").add(image1);
+    db.collection("podcasts").add(image1);
   }
 }
 
@@ -76,7 +74,7 @@ void addTopTrending() {
       'title': podcast.title
     };
 
-    db.collection("topTrending").add(image1);
+    db.collection("podcasts").add(image1);
   }
 }
 
@@ -121,14 +119,14 @@ Future<List<TopPodcast>> gettopPromoted() async {
 void addFavouritePodcasts() {
   for (final podcast in favouritePodcast) {
     final image1 = {
-      'imagepath': podcast.imagepath,
+      'imageUrl': "",
       'createAt': Timestamp.now(),
       'duration': podcast.duration,
       'subtitle': podcast.subtitle,
       'title': podcast.title
     };
 
-    db.collection("favouritesPodcast").add(image1);
+    db.collection("podcasts").add(image1);
   }
 }
 
@@ -181,27 +179,27 @@ Future<List<RecentlyPlayedPodcast>> getRecentlyPlayedPodcast() async {
 }
 
 void addTrendingScreen() {
-  for (final podcast in trendingScreen) {
-    final image1 = {
-      'imagepath': podcast.imagepath,
-      'createAt': Timestamp.now(),
-      'duration': podcast.duration,
-      'subtitle': podcast.subtitle,
-      'title': podcast.title
-    };
-    db.collection("trendingScreenPodcast").add(image1);
-  }
+  // for (final podcast in trendingScreen) {
+  //   final image1 = {
+  //     'imagepath': podcast.imagepath,
+  //     'createAt': Timestamp.now(),
+  //     'duration': podcast.duration,
+  //     'subtitle': podcast.subtitle,
+  //     'title': podcast.title
+  //   };
+  //   db.collection("trendingScreenPodcast").add(image1);
+  // }
 
   for (final podcast in recommendedTrending) {
     final image2 = {
-      'imagepath': podcast.imagepath,
+      'imageUrl': '',
       'createAt': Timestamp.now(),
       'duration': podcast.duration,
       'subtitle': podcast.subtitle,
       'title': podcast.title
     };
 
-    db.collection("recommendedTrending").add(image2);
+    db.collection("podcasts").add(image2);
   }
 }
 

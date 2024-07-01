@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
@@ -24,9 +25,9 @@ class ProfileInformation extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 100),
                   child: Column(
                     children: [
-                      const Text(
-                        'Naveen Prasath',
-                        style: TextStyle(
+                      Text(
+                        FirebaseAuth.instance.currentUser!.displayName!,
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 32,
                           color: Color(0xFFFFFFFF),
@@ -93,12 +94,17 @@ class ProfileInformation extends StatelessWidget {
           ),
         ),
         Positioned(
-            bottom: 200,
-            child: SvgPicture.asset(Assets.images.profile.imageBackground)),
-        Positioned(
           bottom: 207,
-          child: Image.asset(
-            Assets.images.profile.image.path,
+          child: CircleAvatar(
+            radius: 110,
+            backgroundColor: const Color(0xFFFFFFFF),
+            child: CircleAvatar(
+              backgroundColor: Colors.amberAccent,
+              radius: 100,
+              backgroundImage: NetworkImage(
+                FirebaseAuth.instance.currentUser!.photoURL!,
+              ),
+            ),
           ),
         ),
       ],

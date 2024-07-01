@@ -5,14 +5,22 @@ import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
 
 class PlayerImage extends StatelessWidget {
-  const PlayerImage({super.key});
+  const PlayerImage({super.key, required this.imagepath});
+  final String imagepath;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 25, left: 33),
-          child: Image.asset(Assets.images.player.path),
+          padding: const EdgeInsets.only(top: 25, left: 33, right: 33),
+          child: SizedBox(
+            height: 364,
+            width: 364,
+            child: Image.asset(
+              imagepath,
+              fit: BoxFit.fill,
+            ),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 335),

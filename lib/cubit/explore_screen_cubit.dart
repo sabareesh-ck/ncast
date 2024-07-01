@@ -10,7 +10,7 @@ class ExploreScreenCubit extends Cubit<ExploreScreenState> {
   Future<void> loadedPodcasts() async {
     emit(ExploreScreenLoading());
     // addTopPromoted();
-    //addTopTrending();
+    // addTopTrending();
     toppromoted = await gettopPromoted();
     toptrending = await getTopTrending();
     emit(ExploreScreenLoaded(
