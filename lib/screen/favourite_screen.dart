@@ -10,7 +10,6 @@ class FavouriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SizedBox(
-        height: double.maxFinite,
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

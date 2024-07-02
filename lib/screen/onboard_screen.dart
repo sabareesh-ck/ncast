@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
+import 'package:ncast/l10n/app_localizations.dart';
 
 import 'package:ncast/widgets/onboard_screen/background.dart';
 import 'package:ncast/widgets/onboard_screen/bold_text.dart';
@@ -17,40 +18,56 @@ class OnBoardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: SvgPicture.asset(Assets.images.appBar),
       ),
-      body: const Column(
-        children: [
-          Stack(
+      body: Localizations.override(
+        context: context,
+        locale: const Locale('en'),
+        child: Builder(builder: (context) {
+          return Column(
             children: [
-              Background(),
-              Ncast1(),
-              Ncast2(),
-              Mic(),
-              Positioned(
-                top: 400,
-                left: 50,
-                child: Column(
-                  children: [
-                    BoldText(text: 'Listen to your'),
-                    BoldText(text: 'favourite podcast'),
-                    SizedBox(
-                      height: 16,
+              Stack(
+                children: [
+                  const Background(),
+                  const Ncast1(),
+                  const Ncast2(),
+                  const Mic(),
+                  Positioned(
+                    top: 400,
+                    child: SizedBox(
+                      width: width,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            BoldText(
+                                text:
+                                    AppLocalizations.of(context)!.listenToYour),
+                            BoldText(
+                                text: AppLocalizations.of(context)!
+                                    .favouritePodcast),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            const NormalText(),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            const SignIn(),
+                          ],
+                        ),
+                      ),
                     ),
-                    NormalText(),
-                    SizedBox(
-                      height: 70,
-                    ),
-                    SignIn(),
-                  ],
-                ),
-              )
+                  ),
+                ],
+              ),
+              const SignUp(),
             ],
-          ),
-          SignUp(),
-        ],
+          );
+        }),
       ),
     );
   }

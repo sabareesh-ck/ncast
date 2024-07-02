@@ -6,6 +6,7 @@ class BoldText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
       text,
       style: TextStyle(
         color: const Color(0xFF1F1F1F).withOpacity(0.6),

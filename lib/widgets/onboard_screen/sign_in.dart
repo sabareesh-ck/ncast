@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:ncast/l10n/app_localizations.dart';
 import 'package:ncast/screen/home_screen.dart';
 
 final auth = FirebaseAuth.instance;
@@ -55,12 +56,12 @@ class _SignInState extends State<SignIn> {
       },
       style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(const Color(0xFF4C0099))),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 80),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 80),
         child: Text(
-          'Sign in',
-          style:
-              TextStyle(color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600),
+          AppLocalizations.of(context)!.signIn,
+          style: const TextStyle(
+              color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600),
         ),
       ),
     );

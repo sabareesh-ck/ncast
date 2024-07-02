@@ -18,9 +18,8 @@ final db = FirebaseFirestore.instance;
 //   }
 // }
 
-List<TrendingPodcast> trending = [];
-
 Future<List<TrendingPodcast>> getTrendingPodcast() async {
+  List<TrendingPodcast> trending = [];
   await db.collection('podcasts').limit(5).get().then((event) {
     for (var doc in event.docs) {
       trending.add(TrendingPodcast(
@@ -45,9 +44,8 @@ void addPromotedPodcast() {
   }
 }
 
-List<PromotedPodcast> promoted = [];
-
 Future<List<PromotedPodcast>> getPromotedPodcast() async {
+  List<PromotedPodcast> promoted = [];
   await db
       .collection('promotedPodcast')
       .orderBy('createAt')
@@ -76,8 +74,9 @@ Future<List<PromotedPodcast>> getPromotedPodcast() async {
 //   }
 // }
 
-List<TrendingPodcast> toptrending = [];
+
 Future<List<TrendingPodcast>> getTopTrending() async {
+  List<TrendingPodcast> toptrending = [];
   await db.collection('podcasts').limit(6).get().then((event) {
     for (var doc in event.docs) {
       toptrending.add(TrendingPodcast(
@@ -102,9 +101,10 @@ void addTopPromoted() {
   }
 }
 
-List<TopPodcast> toppromoted = [];
 
 Future<List<TopPodcast>> gettopPromoted() async {
+  List<TopPodcast> toppromoted = [];
+
   await db.collection('topPromoted').orderBy('createAt').get().then((event) {
     for (var doc in event.docs) {
       toppromoted.add(
@@ -129,8 +129,9 @@ Future<List<TopPodcast>> gettopPromoted() async {
 //   }
 // }
 
-List<TrendingPodcast> favourites = [];
 Future<List<TrendingPodcast>> getFavouritePodcasts() async {
+  List<TrendingPodcast> favourites = [];
+
   await db
       .collection('podcasts')
       .orderBy('createAt')

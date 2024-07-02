@@ -10,7 +10,7 @@ class FavouriteScreenCubit extends Cubit<FavouriteScreenState> {
   Future<void> loadedPodcasts() async {
     emit(FavouriteScreenLoading());
     //addFavouritePodcasts();
-    favourites = await getFavouritePodcasts();
+    final favourites = await getFavouritePodcasts();
     emit(FavouriteScreenLoaded(favouritePodcasts: favourites));
   }
 }

@@ -11,8 +11,8 @@ class ExploreScreenCubit extends Cubit<ExploreScreenState> {
     emit(ExploreScreenLoading());
     // addTopPromoted();
     // addTopTrending();
-    toppromoted = await gettopPromoted();
-    toptrending = await getTopTrending();
+    final toppromoted = await gettopPromoted();
+    final toptrending = await getTopTrending();
     emit(ExploreScreenLoaded(
         topPodcast: toppromoted, trendingPodcasts: toptrending));
   }

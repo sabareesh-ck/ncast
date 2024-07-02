@@ -1,0 +1,28 @@
+{
+    "@@locale": "en",
+    "listenToYour": "Listen to Your",
+    "@ListenToYour": {
+        "description":"title_1"
+        },
+
+   "favouritePodcast" : "Favourite Podcast",
+    "@favourite podcast" : {
+        "description":"title_2"
+        },
+ 
+ 
+    "moreThanBestTalksEver" : "More than 1000+ best talks ever",
+    "@More than 1000+ best talks ever" : {
+        "description":"Subtitle"
+        },
+
+    "signIn" : "Sign in",
+    "@Sign in" : {
+        "description":"To Sign in"
+        },
+    "signUp" : "Sign up",
+    "@Sign up" : {
+        "description":"To Sign up"
+        }
+}
+

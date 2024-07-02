@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ncast/l10n/app_localizations.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -7,12 +8,12 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {},
-      child: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 80),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 80),
         child: Text(
-          'Sign up',
-          style:
-              TextStyle(color: Color(0xFF4C0099), fontWeight: FontWeight.w600),
+          AppLocalizations.of(context)!.signUp,
+          style: const TextStyle(
+              color: Color(0xFF4C0099), fontWeight: FontWeight.w600),
         ),
       ),
     );
