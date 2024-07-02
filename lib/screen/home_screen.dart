@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:ncast/bloc/bottom_navigator_bloc.dart';
 import 'package:ncast/cubit/explore_screen_cubit.dart';
 import 'package:ncast/cubit/favourite_screen_cubit.dart';
 import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
-import 'package:ncast/cubit/profile_screen_cubit.dart';
 
 import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/explore_screen.dart';
@@ -14,9 +14,13 @@ import 'package:ncast/screen/favourite_screen.dart';
 import 'package:ncast/screen/headphone_screen.dart';
 import 'package:ncast/screen/profile_screen.dart';
 import 'package:ncast/widgets/homescreen/bottom_navigator.dart';
+import 'package:ncast/widgets/onboard_screen/sign_in.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     final controller = PageController(initialPage: 0);
@@ -30,8 +34,6 @@ class HomeScreen extends StatelessWidget {
         ),
         BlocProvider(
             create: (context) => FavouriteScreenCubit()..loadedPodcasts()),
-        BlocProvider(
-            create: (context) => ProfileScreenCubit()..loadedPodcasts()),
         BlocProvider(create: (context) => BottomNavigatorBloc()),
       ],
       child: Scaffold(
@@ -45,20 +47,16 @@ class HomeScreen extends StatelessWidget {
           leadingWidth: 221.35,
           actions: [
             Padding(
-              padding: const EdgeInsets.only(
-                right: 25.0,
-              ),
-              child: Stack(
-                alignment: AlignmentDirectional.topEnd,
-                children: [
-                  SvgPicture.asset(Assets.images.notifiaction),
-                  SvgPicture.asset(
-                    Assets.images.notificationIcon,
-                    height: 50,
-                    width: 10,
-                  ),
-                ],
-              ),
+              padding: const EdgeInsets.only(right: 25.0, top: 13),
+              child: IconButton(
+                  onPressed: () async {
+                    await auth.signOut();
+                    await GoogleSignIn().signOut();
+                  },
+                  icon: const Icon(
+                    Icons.logout,
+                    size: 30,
+                  )),
             )
           ],
         ),

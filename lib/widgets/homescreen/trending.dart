@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
@@ -7,13 +9,17 @@ import 'package:skeletonizer/skeletonizer.dart';
 class Trending extends StatelessWidget {
   const Trending(
       {super.key, required this.trendingPodcast, required this.showLoading});
-  final List<dynamic> trendingPodcast;
+  final List trendingPodcast;
   final bool showLoading;
+
   @override
   Widget build(BuildContext context) {
+    final db = FirebaseFirestore.instance;
     return Skeletonizer(
       enabled: showLoading,
       child: ListView.builder(
+        padding: const EdgeInsets.only(bottom: 80),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: trendingPodcast.length,
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
@@ -26,7 +32,7 @@ class Trending extends StatelessWidget {
                 SizedBox(
                   height: 96,
                   width: 108,
-                  child: Image.asset(trendingPodcast[index].imagepath),
+                  child: Image.network(trendingPodcast[index].imagepath),
                 ),
                 Expanded(
                   child: Padding(
@@ -80,6 +86,14 @@ class Trending extends StatelessWidget {
                           ),
                         ),
                       );
+                      final ref = db
+                          .collection('users')
+                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                          .collection('Podcasts')
+                          .doc('History');
+                      ref.update({
+                        'id': FieldValue.arrayUnion([trendingPodcast[index].id])
+                      });
                     },
                     child: Stack(
                       alignment: AlignmentDirectional.center,

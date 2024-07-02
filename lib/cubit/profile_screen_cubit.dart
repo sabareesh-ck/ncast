@@ -10,7 +10,7 @@ class ProfileScreenCubit extends Cubit<ProfileScreenState> {
   Future<void> loadedPodcasts() async {
     emit(ProfileScreenLoading());
     //addRecentPlayedPodcasts();
-    recentlyplayed = await getRecentlyPlayedPodcast();
-    emit(ProfileScreenLoaded(recentlyPlayed: recentlyplayed));
+    var recently = await getRecentlyPlayedPodcast();
+    emit(ProfileScreenLoaded(recentlyPlayed: recently));
   }
 }

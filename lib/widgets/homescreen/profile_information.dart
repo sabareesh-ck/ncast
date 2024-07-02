@@ -99,7 +99,6 @@ class ProfileInformation extends StatelessWidget {
             radius: 110,
             backgroundColor: const Color(0xFFFFFFFF),
             child: CircleAvatar(
-              backgroundColor: Colors.amberAccent,
               radius: 100,
               backgroundImage: NetworkImage(
                 FirebaseAuth.instance.currentUser!.photoURL!,

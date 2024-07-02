@@ -15,7 +15,7 @@ class TrendingPodcastScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TrendingScreenCubit()..loadedPodcasts(),
+      create: (ctx) => TrendingScreenCubit()..loadedPodcasts(),
       child: Scaffold(
         appBar: AppBar(
           leadingWidth: 100,
@@ -68,6 +68,9 @@ class TrendingPodcastScreen extends StatelessWidget {
                     return const SizedBox.shrink();
                   },
                 ),
+              ),
+              const SizedBox(
+                height: 6,
               ),
               const Padding(
                 padding: EdgeInsets.only(

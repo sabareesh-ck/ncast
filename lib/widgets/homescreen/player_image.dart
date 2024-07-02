@@ -16,7 +16,7 @@ class PlayerImage extends StatelessWidget {
           child: SizedBox(
             height: 364,
             width: 364,
-            child: Image.asset(
+            child: Image.network(
               imagepath,
               fit: BoxFit.fill,
             ),

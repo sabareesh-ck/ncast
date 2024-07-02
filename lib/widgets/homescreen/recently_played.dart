@@ -19,6 +19,8 @@ class RecentlyPlayed extends StatelessWidget {
       child: showLoading
           ? const DummyLoader()
           : ListView.builder(
+              padding: const EdgeInsets.only(bottom: 80),
+              physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemBuilder: (ctx, index) {
@@ -30,7 +32,7 @@ class RecentlyPlayed extends StatelessWidget {
                       SizedBox(
                         height: 96,
                         width: 108,
-                        child: Image.asset(recentlyPlayed[index].imagepath),
+                        child: Image.network(recentlyPlayed[index].imagepath),
                       ),
                       Expanded(
                         child: Padding(
@@ -50,7 +52,7 @@ class RecentlyPlayed extends StatelessWidget {
                                 height: 4,
                               ),
                               Text(
-                                '${recentlyPlayed[index].durationRemaining} min remaining',
+                                '${recentlyPlayed[index].durationRemaining} remaining',
                                 style: TextStyle(
                                   color:
                                       const Color(0xFF1F1F1F).withOpacity(0.7),

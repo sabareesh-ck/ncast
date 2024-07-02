@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ncast/screen/home_screen.dart';
 
+final auth = FirebaseAuth.instance;
+
 class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+  const SignIn({
+    super.key,
+  });
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -14,8 +18,6 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final db = FirebaseFirestore.instance;
   Future<void> signInWithGoogle({required BuildContext context}) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-
     final GoogleSignIn googleSignIn = GoogleSignIn();
 
     final GoogleSignInAccount? googleSignInAccount =
@@ -42,9 +44,8 @@ class _SignInState extends State<SignIn> {
         final userinfo = {
           'name': FirebaseAuth.instance.currentUser!.displayName,
           'profile_picture': FirebaseAuth.instance.currentUser!.photoURL,
-          'podcasts': ''
         };
-        db
+        await db
             .collection('users')
             .doc(FirebaseAuth.instance.currentUser!.uid)
             .set(userinfo);

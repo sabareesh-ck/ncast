@@ -10,8 +10,8 @@ class TrendingScreenCubit extends Cubit<TrendingScreenState> {
   Future<void> loadedPodcasts() async {
     emit(TrendingScreenLoading());
     //addTrendingScreen();
-    trendingscreen = await getTrendingScreen();
-    recommmendedtrending = await getRecommmendedPodcast();
+    final trendingscreen = await getTrendingScreen();
+    final recommmendedtrending = await getRecommmendedPodcast();
     getRecommmendedPodcast();
     emit(TrendingScreenLoaded(
         trendingPodcasts: recommmendedtrending,
