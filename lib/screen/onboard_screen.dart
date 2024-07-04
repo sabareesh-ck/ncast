@@ -19,6 +19,8 @@ class OnBoardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: SvgPicture.asset(Assets.images.appBar),
@@ -36,7 +38,7 @@ class OnBoardScreen extends StatelessWidget {
                   const Ncast2(),
                   const Mic(),
                   Positioned(
-                    top: 400,
+                    top: height * 0.5,
                     child: SizedBox(
                       width: width,
                       child: Align(
