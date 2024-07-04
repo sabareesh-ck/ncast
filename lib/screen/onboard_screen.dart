@@ -38,7 +38,7 @@ class OnBoardScreen extends StatelessWidget {
                   const Ncast2(),
                   const Mic(),
                   Positioned(
-                    top: height * 0.5,
+                    top: height * 0.45,
                     child: SizedBox(
                       width: width,
                       child: Align(

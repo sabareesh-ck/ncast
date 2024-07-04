@@ -6,6 +6,7 @@ import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:ncast/firebase_options.dart';
 import 'package:ncast/l10n/app_localizations.dart';
 import 'package:ncast/screen/home_screen.dart';
+import 'package:ncast/screen/onboard_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,9 +28,9 @@ class App extends StatelessWidget {
           home: StreamBuilder<User?>(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
-              // if (!snapshot.hasData) {
-              //   return const OnBoardScreen();
-              // }
+              if (!snapshot.hasData) {
+                return const OnBoardScreen();
+              }
               return const HomeScreen();
             },
           ),
