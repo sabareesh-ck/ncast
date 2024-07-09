@@ -41,13 +41,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAZe9jsR-v7c-FwF-1U2yUPPTJBrgUmpnc',
-    appId: '1:157770815332:web:4ad7a5e9086c6e956a8c71',
-    messagingSenderId: '157770815332',
-    projectId: 'ncast-app',
-    authDomain: 'ncast-app.firebaseapp.com',
-    storageBucket: 'ncast-app.appspot.com',
-  );
+      apiKey: "AIzaSyAZe9jsR-v7c-FwF-1U2yUPPTJBrgUmpnc",
+      authDomain: "ncast-app.firebaseapp.com",
+      projectId: "ncast-app",
+      storageBucket: "ncast-app.appspot.com",
+      messagingSenderId: "157770815332",
+      appId: "1:157770815332:web:4ad7a5e9086c6e956a8c71");
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBeyZ7b8byJK0E0geyYeeXnH45uqBfs0Dc',
@@ -63,6 +62,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '157770815332',
     projectId: 'ncast-app',
     storageBucket: 'ncast-app.appspot.com',
+    androidClientId:
+        '157770815332-1k7ldvseum7uuptm3is15r3o60fac4gs.apps.googleusercontent.com',
+    iosClientId:
+        '157770815332-f8nj79vplt40jfgm3mnc5l29088i665g.apps.googleusercontent.com',
     iosBundleId: 'com.example.ncast',
   );
 
@@ -72,6 +75,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '157770815332',
     projectId: 'ncast-app',
     storageBucket: 'ncast-app.appspot.com',
+    androidClientId:
+        '157770815332-1k7ldvseum7uuptm3is15r3o60fac4gs.apps.googleusercontent.com',
+    iosClientId:
+        '157770815332-f8nj79vplt40jfgm3mnc5l29088i665g.apps.googleusercontent.com',
     iosBundleId: 'com.example.ncast',
   );
 

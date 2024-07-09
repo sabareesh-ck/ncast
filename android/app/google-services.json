@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "157770815332-1k7ldvseum7uuptm3is15r3o60fac4gs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ncast",
+            "certificate_hash": "f9c757ec8c2ab5e9faf7a4baddce9d8dceb3d710"
+          }
+        },
+        {
           "client_id": "157770815332-emdgtt4krv2279hr9822vsmiudluotoi.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -31,21 +31,26 @@
 
   <title>ncast</title>
   <link rel="manifest" href="manifest.json">
-  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
 
-
-
+  <script src="flutter.js" defer></script>
+  
   <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = {flutter_service_worker_version};
+     import { initializeApp } from 'firebase/app';
+    var firebaseConfig = {
+      apiKey: "AIzaSyAZe9jsR-v7c-FwF-1U2yUPPTJBrgUmpnc",
+      authDomain: "ncast-app.firebaseapp.com",
+      projectId: "ncast-app",
+      storageBucket: "ncast-app.appspot.com",
+      messagingSenderId: "157770815332",
+      appId: "1:157770815332:web:4ad7a5e9086c6e956a8c71"  
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
   </script>
-   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('flutter-first-frame', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
-      });
-    }
-  </script>
+
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
@@ -64,24 +69,21 @@
         }
       });
     });
-      
-
   </script>
+
   <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-  apiKey: "AIzaSyAZe9jsR-v7c-FwF-1U2yUPPTJBrgUmpnc",
-  authDomain: "ncast-app.firebaseapp.com",
-  projectId: "ncast-app",
-  storageBucket: "ncast-app.appspot.com",
-  messagingSenderId: "157770815332",
-  appId: "1:157770815332:web:4ad7a5e9086c6e956a8c71"
-};
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = {flutter_service_worker_version};
+  </script>
+   <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
   </script>
   <script type="text/javascript">
-    window.flutterWebRenderer = "html";
+    engineInitializer.initializeEngine(config) = "html";
 </script>
 <script src="main.dart.js" type="application/javascript"></script>
 
