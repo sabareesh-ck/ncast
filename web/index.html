@@ -31,31 +31,29 @@
 
   <title>ncast</title>
   <link rel="manifest" href="manifest.json">
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
-
-  <script src="flutter.js" defer></script>
-  
-  <script>
-     import { initializeApp } from 'firebase/app';
-    var firebaseConfig = {
-      apiKey: "AIzaSyAZe9jsR-v7c-FwF-1U2yUPPTJBrgUmpnc",
-      authDomain: "ncast-app.firebaseapp.com",
-      projectId: "ncast-app",
-      storageBucket: "ncast-app.appspot.com",
-      messagingSenderId: "157770815332",
-      appId: "1:157770815332:web:4ad7a5e9086c6e956a8c71"  
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
-
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script>
+      var firebaseConfig = {
+  apiKey: "AIzaSyAZe9jsR-v7c-FwF-1U2yUPPTJBrgUmpnc",
+  authDomain: "ncast-app.firebaseapp.com",
+  projectId: "ncast-app",
+  storageBucket: "ncast-app.appspot.com",
+  messagingSenderId: "157770815332",
+  appId: "1:157770815332:web:4ad7a5e9086c6e956a8c71",
+
+};
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   <script>
+    
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.load({

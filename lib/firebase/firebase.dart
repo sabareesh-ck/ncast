@@ -20,7 +20,7 @@ final db = FirebaseFirestore.instance;
 
 Future<List<TrendingPodcast>> getTrendingPodcast() async {
   List<TrendingPodcast> trending = [];
-  await db.collection('podcasts').limit(5).get().then((event) {
+  await db.collection('podcasts').get().then((event) {
     for (var doc in event.docs) {
       trending.add(TrendingPodcast(
           imagepath: doc.data()['imageUrl'],
@@ -74,7 +74,6 @@ Future<List<PromotedPodcast>> getPromotedPodcast() async {
 //   }
 // }
 
-
 Future<List<TrendingPodcast>> getTopTrending() async {
   List<TrendingPodcast> toptrending = [];
   await db.collection('podcasts').limit(6).get().then((event) {
@@ -100,7 +99,6 @@ void addTopPromoted() {
     db.collection("topPromoted").add(image1);
   }
 }
-
 
 Future<List<TopPodcast>> gettopPromoted() async {
   List<TopPodcast> toppromoted = [];

@@ -15,6 +15,7 @@ class Trending extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final db = FirebaseFirestore.instance;
+
     return Skeletonizer(
       enabled: showLoading,
       child: ListView.builder(

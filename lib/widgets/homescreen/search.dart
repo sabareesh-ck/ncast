@@ -2,12 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
 
-class Search extends StatelessWidget {
-  const Search({super.key});
+class Search extends StatefulWidget {
+  const Search({super.key, required this.textfilter});
+
+  final Function(String) textfilter;
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  final searchcontroller = TextEditingController();
+  @override
+  void dispose() {
+    searchcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final searchcontroller = TextEditingController();
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, top: 40),
       child: Container(
@@ -27,6 +40,9 @@ class Search extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(right: 35.0),
                 child: TextField(
+                  onChanged: (value) {
+                    widget.textfilter(value);
+                  },
                   controller: searchcontroller,
                   decoration: InputDecoration(
                       border: InputBorder.none,

@@ -19,12 +19,12 @@ class TrendingPodcastScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           leadingWidth: 100,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).pop;
-              },
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
               child: Stack(
                 alignment: AlignmentDirectional.center,
                 children: [
@@ -51,7 +51,9 @@ class TrendingPodcastScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Search(),
+              Search(
+                textfilter: (String text) {},
+              ),
               Padding(
                 padding: const EdgeInsets.only(right: 25, left: 25, top: 30),
                 child: BlocBuilder<TrendingScreenCubit, TrendingScreenState>(

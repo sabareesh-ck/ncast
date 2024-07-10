@@ -17,6 +17,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  var loading = false;
   final db = FirebaseFirestore.instance;
   Future<void> signInWithGoogle({required BuildContext context}) async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -41,6 +42,9 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () async {
+        setState(() {
+          loading = true;
+        });
         await signInWithGoogle(context: context);
         final userinfo = {
           'name': FirebaseAuth.instance.currentUser!.displayName,
@@ -56,14 +60,21 @@ class _SignInState extends State<SignIn> {
       },
       style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(const Color(0xFF4C0099))),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 80),
-        child: Text(
-          AppLocalizations.of(context)!.signIn,
-          style: const TextStyle(
-              color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600),
-        ),
-      ),
+      child: loading
+          ? const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 80, vertical: 8),
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+              child: Text(
+                AppLocalizations.of(context)!.signIn,
+                style: const TextStyle(
+                    color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600),
+              ),
+            ),
     );
   }
 }

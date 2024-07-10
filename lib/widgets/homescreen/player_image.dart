@@ -28,7 +28,8 @@ class PlayerImage extends StatelessWidget {
             alignment: Alignment.center,
             height: 100,
             width: 500,
-            child: ClipRect(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(35),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                 child: Container(

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/player.dart';
 import 'package:ncast/widgets/homescreen/dummy_loader.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class RecentlyPlayed extends StatelessWidget {
@@ -71,25 +72,14 @@ class RecentlyPlayed extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                     )
-                                  : Stack(
-                                      children: [
-                                        Container(
-                                          height: 8,
-                                          width: 176,
-                                          decoration: BoxDecoration(
-                                              color: const Color(0xFFE9E9E9),
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                        ),
-                                        Container(
-                                          height: 8,
-                                          width: Random().nextDouble() * 176,
-                                          decoration: BoxDecoration(
-                                              color: const Color(0xFFFF5757),
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                        )
-                                      ],
+                                  : LinearPercentIndicator(
+                                      animation: true,
+                                      progressColor: const Color(0xFFFF5757),
+                                      width: 176,
+                                      lineHeight: 8,
+                                      animationDuration: 1500,
+                                      barRadius: const Radius.circular(10),
+                                      percent: Random().nextDouble(),
                                     )
                             ],
                           ),

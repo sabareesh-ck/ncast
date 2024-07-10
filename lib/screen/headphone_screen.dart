@@ -8,15 +8,30 @@ import 'package:ncast/widgets/homescreen/promoted.dart';
 import 'package:ncast/widgets/homescreen/search.dart';
 import 'package:ncast/widgets/homescreen/trending.dart';
 
-class HeadphoneScreen extends StatelessWidget {
+class HeadphoneScreen extends StatefulWidget {
   const HeadphoneScreen({super.key});
+
+  @override
+  State<HeadphoneScreen> createState() => _HeadphoneScreenState();
+}
+
+class _HeadphoneScreenState extends State<HeadphoneScreen> {
+  String text = "";
+  void textfilter(String value) {
+    setState(() {
+      text = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Search(),
+          Search(
+            textfilter: textfilter,
+          ),
           const Padding(
             padding: EdgeInsets.only(top: 30, left: 35),
             child: Text(
@@ -92,7 +107,14 @@ class HeadphoneScreen extends StatelessWidget {
                 debugPrint("Handle the error");
               } else if (state is HomeScreenLoaded) {
                 return Trending(
-                  trendingPodcast: state.trendingPodcasts,
+                  trendingPodcast: state.trendingPodcasts
+                      .where((podcasts) => podcasts.title
+                          .trim()
+                          .toLowerCase()
+                          .replaceAll(" ", '')
+                          .contains(
+                              text.toLowerCase().trim().replaceAll(" ", '')))
+                      .toList(),
                   showLoading: false,
                 );
               } else if (state is HomeScreenLoading) {
