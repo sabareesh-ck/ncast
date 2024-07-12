@@ -53,7 +53,7 @@ class RecentlyPlayed extends StatelessWidget {
                                 height: 4,
                               ),
                               Text(
-                                '${recentlyPlayed[index].durationRemaining} remaining',
+                                '${recentlyPlayed[index].durationRemaining} min remaining',
                                 style: TextStyle(
                                   color:
                                       const Color(0xFF1F1F1F).withOpacity(0.7),

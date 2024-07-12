@@ -63,7 +63,7 @@ class Trending extends StatelessWidget {
                           height: 4,
                         ),
                         Text(
-                          trendingPodcast[index].duration,
+                          '${trendingPodcast[index].duration} min ',
                           style: TextStyle(
                             color: const Color(0xFF1F1F1F).withOpacity(0.7),
                             fontSize: 14,

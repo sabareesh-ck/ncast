@@ -93,26 +93,26 @@ List<TrendingPodcast> trendingScreen = const [
   TrendingPodcast(
     id: "",
     imagepath: 'assets/images/trending_screen/image_1.png',
-    duration: '15 min',
+    duration: "15",
     subtitle: 'Business',
     title: 'Mind of an Enterprenuer',
   ),
   TrendingPodcast(
       id: "",
       imagepath: 'assets/images/trending_screen/image_2.png',
-      duration: '10 min',
+      duration: '10',
       subtitle: 'Healthy Lifestyle',
       title: 'Unravelling The Mind'),
   TrendingPodcast(
       id: "",
       imagepath: 'assets/images/trending_screen/image_3.png',
-      duration: '25 min',
+      duration: '25',
       subtitle: 'Educational',
       title: 'A Tale of Writer'),
   TrendingPodcast(
       id: "",
       imagepath: 'assets/images/trending_screen/image_4.png',
-      duration: '10 min',
+      duration: '10',
       subtitle: 'Sociology',
       title: 'Addiction to Social!'),
 ];
@@ -120,13 +120,13 @@ List<TrendingPodcast> recommendedTrending = const [
   TrendingPodcast(
       id: "",
       imagepath: 'assets/images/trending_screen/recommended/image_1.png',
-      duration: '10 min',
+      duration: '10',
       subtitle: 'Health & Lifestyle',
       title: 'Mind map'),
   TrendingPodcast(
       id: "",
       imagepath: 'assets/images/trending_screen/recommended/image_2.png',
-      duration: '15 min',
+      duration: '15',
       subtitle: 'Investigation Theories',
       title: 'True Crime')
 ];

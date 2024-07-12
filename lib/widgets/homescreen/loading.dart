@@ -5,7 +5,6 @@ import 'package:ncast/bloc/player_bloc.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
-
   @override
   State<Loading> createState() => _LoadingState();
 }
@@ -38,12 +37,16 @@ class _LoadingState extends State<Loading> {
           },
           child: Row(
             children: List.generate(7, (index) {
-              Color color;
+              List<Color> color;
+
               if (index < _currentProgress) {
-                color = const Color(0xFF4C0099);
+                color = [
+                  const Color(0xFF4C0099),
+                ];
               } else {
-                color = const Color(0xFF1F1F1F).withOpacity(0.2);
+                color = [const Color(0xFF1F1F1F).withOpacity(0.2)];
               }
+
               return Container(
                 margin: const EdgeInsets.only(left: 5),
                 height: 60,
@@ -51,7 +54,7 @@ class _LoadingState extends State<Loading> {
                 child: LoadingIndicator(
                     pause: pause,
                     strokeWidth: 10,
-                    colors: [color],
+                    colors: color,
                     indicatorType: Indicator.lineScalePulseOutRapid),
               );
             }),

@@ -104,7 +104,7 @@ class Player extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '07:00',
+                    '00:00',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
@@ -112,7 +112,7 @@ class Player extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '15:00',
+                    '$duration:00',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
