@@ -124,12 +124,14 @@ class Player extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.only(left: 10, right: 10, bottom: 35),
-              child: const Padding(
-                padding: EdgeInsets.only(
+              child: Padding(
+                padding: const EdgeInsets.only(
                   left: 8.0,
                   top: 15,
                 ),
-                child: Loading(),
+                child: Loading(
+                  duration: duration,
+                ),
               ),
             ),
             Row(

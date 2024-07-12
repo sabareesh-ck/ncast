@@ -2,31 +2,76 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ncast/bloc/player_bloc.dart';
+import 'package:ncast/model/loading_color.dart';
 
 class Loading extends StatefulWidget {
-  const Loading({super.key});
+  const Loading({
+    super.key,
+    required this.duration,
+  });
+  final String duration;
+
   @override
   State<Loading> createState() => _LoadingState();
 }
 
 class _LoadingState extends State<Loading> {
+  late var duration = (double.parse(widget.duration) / 35) * 60000000;
+
+  bool drag = false;
+  List<List<Color>> color = LoadingColor().defaultColor;
+  bool pause = true;
+
   double _currentProgress = 0.0;
   double _indicatorWidth = 0.0;
   @override
   Widget build(BuildContext context) {
     _indicatorWidth = MediaQuery.of(context).size.width / 7;
-    return BlocBuilder<PlayerBloc, PlayerState>(
+    return BlocConsumer<PlayerBloc, PlayerState>(
+      listener: (context, state) async {
+        drag = false;
+        int i = 0;
+        bool stop = false;
+        if (state is PlayerPause) {
+          stop = true;
+        }
+        if (state is PlayerPlay) {
+          if (color[6][4] == const Color(0xFF4C0099)) {
+            color = LoadingColor().defaultColor;
+          }
+          for (var k = i; k < 7; k++) {
+            i = k;
+            if (!stop) {
+              for (var j = 0; j < 5; j++) {
+                await Future.delayed(
+                    Duration(
+                      microseconds: duration.round(),
+                    ), () {
+                  color[k][j] = const Color(0xFF4C0099);
+                });
+              }
+            } else {
+              break;
+            }
+          }
+          if (color[6][4] == const Color(0xFF4C0099)) {
+            // ignore: use_build_context_synchronously
+            context.read<PlayerBloc>().fullyPlayed();
+          }
+        }
+      },
       builder: (context, state) {
-        bool pause = true;
         if (state is PlayerPause) {
           pause = true;
         }
         if (state is PlayerPlay) {
           pause = false;
         }
+
         return GestureDetector(
           onHorizontalDragUpdate: (details) {
             setState(() {
+              drag = true;
               _currentProgress += details.primaryDelta! / _indicatorWidth;
               if (_currentProgress < 0) {
                 _currentProgress = 0;
@@ -37,14 +82,24 @@ class _LoadingState extends State<Loading> {
           },
           child: Row(
             children: List.generate(7, (index) {
-              List<Color> color;
-
-              if (index < _currentProgress) {
-                color = [
-                  const Color(0xFF4C0099),
-                ];
-              } else {
-                color = [const Color(0xFF1F1F1F).withOpacity(0.2)];
+              if (drag) {
+                if (index < _currentProgress) {
+                  color[index] = [
+                    const Color(0xFF4C0099),
+                    const Color(0xFF4C0099),
+                    const Color(0xFF4C0099),
+                    const Color(0xFF4C0099),
+                    const Color(0xFF4C0099)
+                  ];
+                } else {
+                  color[index] = [
+                    const Color(0xFF1F1F1F).withOpacity(0.2),
+                    const Color(0xFF1F1F1F).withOpacity(0.2),
+                    const Color(0xFF1F1F1F).withOpacity(0.2),
+                    const Color(0xFF1F1F1F).withOpacity(0.2),
+                    const Color(0xFF1F1F1F).withOpacity(0.2)
+                  ];
+                }
               }
 
               return Container(
@@ -54,7 +109,7 @@ class _LoadingState extends State<Loading> {
                 child: LoadingIndicator(
                     pause: pause,
                     strokeWidth: 10,
-                    colors: color,
+                    colors: color[index],
                     indicatorType: Indicator.lineScalePulseOutRapid),
               );
             }),

@@ -13,4 +13,8 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       emit(PlayerPause());
     });
   }
+  void fullyPlayed() {
+    // ignore: invalid_use_of_visible_for_testing_member
+    emit(PlayerPause());
+  }
 }
