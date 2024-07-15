@@ -7,6 +7,7 @@ import 'package:ncast/bloc/bottom_navigator_bloc.dart';
 import 'package:ncast/cubit/explore_screen_cubit.dart';
 import 'package:ncast/cubit/favourite_screen_cubit.dart';
 import 'package:ncast/cubit/home_screen_cubit_cubit.dart';
+import 'package:ncast/cubit/profile_screen_cubit.dart';
 
 import 'package:ncast/gen/assets.gen.dart';
 import 'package:ncast/screen/explore_screen.dart';
@@ -35,6 +36,8 @@ class HomeScreen extends StatelessWidget {
         BlocProvider(
             create: (context) => FavouriteScreenCubit()..loadedPodcasts()),
         BlocProvider(create: (context) => BottomNavigatorBloc()),
+        BlocProvider(
+            create: (context) => ProfileScreenCubit()..loadedPodcasts()),
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -77,6 +80,7 @@ class HomeScreen extends StatelessWidget {
                         .add(FavouriteScreenTap());
                   }
                   if (value == 3) {
+                    context.read<ProfileScreenCubit>().loadedPodcasts();
                     context.read<BottomNavigatorBloc>().add(ProfileScreenTap());
                   }
                 },

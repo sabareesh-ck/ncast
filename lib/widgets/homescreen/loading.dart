@@ -22,11 +22,11 @@ class _LoadingState extends State<Loading> {
   List<List<Color>> color = LoadingColor().defaultColor;
   bool pause = true;
 
-  double _currentProgress = 0.0;
-  double _indicatorWidth = 0.0;
+  double dragIndex = 0.0;
+  double width = 0.0;
   @override
   Widget build(BuildContext context) {
-    _indicatorWidth = MediaQuery.of(context).size.width / 7;
+    width = MediaQuery.of(context).size.width / 7;
     return BlocConsumer<PlayerBloc, PlayerState>(
       listener: (context, state) async {
         drag = false;
@@ -40,9 +40,9 @@ class _LoadingState extends State<Loading> {
             color = LoadingColor().defaultColor;
           }
           for (var k = i; k < 7; k++) {
-            i = k;
             if (!stop) {
               for (var j = 0; j < 5; j++) {
+                dragIndex = k.ceilToDouble();
                 await Future.delayed(
                     Duration(
                       microseconds: duration.round(),
@@ -72,18 +72,18 @@ class _LoadingState extends State<Loading> {
           onHorizontalDragUpdate: (details) {
             setState(() {
               drag = true;
-              _currentProgress += details.primaryDelta! / _indicatorWidth;
-              if (_currentProgress < 0) {
-                _currentProgress = 0;
-              } else if (_currentProgress > 7) {
-                _currentProgress = 7;
+              dragIndex += details.primaryDelta! / width;
+              if (dragIndex < 0) {
+                dragIndex = 0;
+              } else if (dragIndex > 7) {
+                dragIndex = 7;
               }
             });
           },
           child: Row(
             children: List.generate(7, (index) {
               if (drag) {
-                if (index < _currentProgress) {
+                if (index < dragIndex) {
                   color[index] = [
                     const Color(0xFF4C0099),
                     const Color(0xFF4C0099),
