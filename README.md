@@ -90,11 +90,3 @@ Environment variables may also be used, particularly for Node.js components. Con
 
 Please adhere to the coding style and conventions used in the project.
 
-## License Information
-
-License information is not specified in the provided repository details. It is assumed this project is unlicensed. All rights are reserved unless otherwise specified.
-
-## Acknowledgments
-
--   This project may utilize third-party libraries and frameworks. Refer to the individual licenses of those dependencies.
--   The `@fastify/busboy` module includes dependencies such as `dicer` and `streamsearch`. Credits to their respective authors.
